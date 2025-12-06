@@ -16,19 +16,6 @@ CREATE SCHEMA IF NOT EXISTS `LittleLemonDB` DEFAULT CHARACTER SET utf8 ;
 USE `LittleLemonDB` ;
 
 -- -----------------------------------------------------
--- Table `LittleLemonDB`.`bookings`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `LittleLemonDB`.`bookings` ;
-
-CREATE TABLE IF NOT EXISTS `LittleLemonDB`.`bookings` (
-  `booking_id` INT NOT NULL AUTO_INCREMENT,
-  `booking_date` DATE NOT NULL,
-  `table_number` INT NOT NULL,
-  PRIMARY KEY (`booking_id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `LittleLemonDB`.`customers`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `LittleLemonDB`.`customers` ;
@@ -39,6 +26,26 @@ CREATE TABLE IF NOT EXISTS `LittleLemonDB`.`customers` (
   `contact_numbers` VARCHAR(100) NOT NULL,
   `email` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`customer_id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `LittleLemonDB`.`bookings`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `LittleLemonDB`.`bookings` ;
+
+CREATE TABLE IF NOT EXISTS `LittleLemonDB`.`bookings` (
+  `booking_id` INT NOT NULL AUTO_INCREMENT,
+  `booking_date` DATE NOT NULL,
+  `table_number` INT NOT NULL,
+  `customer_id` INT NULL,
+  PRIMARY KEY (`booking_id`),
+  INDEX `booking_customer_idx` (`customer_id` ASC) VISIBLE,
+  CONSTRAINT `booking_customer`
+    FOREIGN KEY (`customer_id`)
+    REFERENCES `LittleLemonDB`.`customers` (`customer_id`)
+    ON DELETE RESTRICT
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -123,17 +130,10 @@ CREATE TABLE IF NOT EXISTS `LittleLemonDB`.`orders` (
   `customer_id` INT NULL,
   `delivery_status_id` INT NULL,
   `menu_id` INT NULL,
-  `booking_id` INT NULL,
   PRIMARY KEY (`order_id`),
-  INDEX `booking_id_idx` (`booking_id` ASC) VISIBLE,
   INDEX `customer_id_idx` (`customer_id` ASC) VISIBLE,
   INDEX `delivery_status_id_idx` (`delivery_status_id` ASC) VISIBLE,
   INDEX `menu_id_idx` (`menu_id` ASC) VISIBLE,
-  CONSTRAINT `booking_id`
-    FOREIGN KEY (`booking_id`)
-    REFERENCES `LittleLemonDB`.`bookings` (`booking_id`)
-    ON DELETE RESTRICT
-    ON UPDATE CASCADE,
   CONSTRAINT `customer_id`
     FOREIGN KEY (`customer_id`)
     REFERENCES `LittleLemonDB`.`customers` (`customer_id`)
