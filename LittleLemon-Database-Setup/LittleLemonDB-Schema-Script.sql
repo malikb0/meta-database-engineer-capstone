@@ -35,8 +35,9 @@ DROP TABLE IF EXISTS `LittleLemonDB`.`customers` ;
 
 CREATE TABLE IF NOT EXISTS `LittleLemonDB`.`customers` (
   `customer_id` INT NOT NULL AUTO_INCREMENT,
-  `customer_name` VARCHAR(100) NOT NULL,
+  `full_name` VARCHAR(100) NOT NULL,
   `contact_numbers` VARCHAR(100) NOT NULL,
+  `email` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`customer_id`))
 ENGINE = InnoDB;
 
@@ -76,18 +77,36 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `LittleLemonDB`.`menu_item`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `LittleLemonDB`.`menu_item` ;
+
+CREATE TABLE IF NOT EXISTS `LittleLemonDB`.`menu_item` (
+  `menu_item_id` INT NOT NULL AUTO_INCREMENT,
+  `course_name` VARCHAR(45) NULL,
+  `starter_name` VARCHAR(45) NULL,
+  `drink_name` VARCHAR(45) NULL,
+  PRIMARY KEY (`menu_item_id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `LittleLemonDB`.`menu`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `LittleLemonDB`.`menu` ;
 
 CREATE TABLE IF NOT EXISTS `LittleLemonDB`.`menu` (
   `menu_id` INT NOT NULL AUTO_INCREMENT,
-  `cuisines` VARCHAR(100) NOT NULL,
-  `starters` VARCHAR(100) NOT NULL,
-  `courses` VARCHAR(100) NOT NULL,
-  `drinks` VARCHAR(100) NOT NULL,
-  `desserts` VARCHAR(100) NOT NULL,
-  PRIMARY KEY (`menu_id`))
+  `menu_name` VARCHAR(100) NOT NULL,
+  `menu_item_id` INT NOT NULL,
+  `cuisine` VARCHAR(45) NULL,
+  PRIMARY KEY (`menu_id`),
+  INDEX `menu_item_id_idx` (`menu_item_id` ASC) VISIBLE,
+  CONSTRAINT `menu_item_id`
+    FOREIGN KEY (`menu_item_id`)
+    REFERENCES `LittleLemonDB`.`menu_item` (`menu_item_id`)
+    ON DELETE RESTRICT
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
