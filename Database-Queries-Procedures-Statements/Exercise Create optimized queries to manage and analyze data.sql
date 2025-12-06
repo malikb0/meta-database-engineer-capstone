@@ -26,11 +26,11 @@ CREATE PROCEDURE CancelOrder(IN id INT)
 BEGIN
 delete from orders
 where order_id = id;
+SELECT CONCAT('Order ', id, ' is cancelled') as 'Confirmation';
 END //
 DELIMITER ;
 
-
-call CancelOrder(5);
+call CancelOrder(20);
 
 
 
