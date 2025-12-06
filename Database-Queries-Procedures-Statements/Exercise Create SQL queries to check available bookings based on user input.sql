@@ -9,7 +9,7 @@ values
 (3, '2022-10-11', 2, 2),
 (4, '2022-10-13', 2, 1);
 
-select * from bookings where booking_id <= 5;
+select * from bookings where booking_id < 5;
 
 
 
