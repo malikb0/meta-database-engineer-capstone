@@ -1,5 +1,6 @@
 USE LittleLemonDB;
 
+/*   Task 1 Create Virtual Table  */
 create view Virtual_OrdersView as
 select order_id as OrderID, quantity as Quantity, total_cost as Cost 
 from orders
@@ -7,7 +8,7 @@ where quantity > 2;
 
 select * from Virtual_OrdersView;
 
-create view Virtual_BigOrders as 
+/*   Task 2 Joins  */
 select 
 	cst.customer_id as CustomerID, 
     full_name as FullName, 
@@ -21,7 +22,8 @@ left join menu as mn on odr.menu_id = mn.menu_id
 left join menu_item as mnit on mn.menu_item_id = mnit.menu_item_id
 where total_cost > 150;
 
-select * from Virtual_BigOrders;
+/*   Task 3 SubQuery  */
+
 select menu_name from menu 
 where menu_id = any (
 select mn.menu_id from menu as mn 
