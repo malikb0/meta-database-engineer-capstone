@@ -3,10 +3,10 @@ Repository created for Meta Data Base Engineer Capstone Project
 
 ## Index
 
-1. Database Setup [Go](#littlelemon-database-modeling-and-schema-creation)
-2. Create virtual tables [Go](#create-a-virtual-table-to-summarize-data)
-3. Creat optimized queires to manage and analyze data [Go](#create-optimized-queires-to-manage-and-analyze-data)
-4. Create SQL queries to add and update bookings [Go](#create-sql-queries-to-add-and-update-bookings)
+1. Database Setup [Go](#1-littlelemon-database-modeling-and-schema-creation)
+2. Create virtual tables [Go](#2-create-virtual-tables-to-summarize-data)
+3. Creat optimized queires to manage and analyze data [Go](#3-create-optimized-queires-to-manage-and-analyze-data)
+4. Create SQL queries to add and update bookings [Go](#4-create-sql-queries-to-add-and-update-bookings)
 5. Set up the Tableau Workspace for data analysis [Go](#5-set-up-the-tableau-workspace-for-data-analysis)
 6. Create interactive dashboard for sales and profits [Go](#6-create-interactive-dashboard-for-sales-and-profits)
 7. Set up the client project [Go](#7-set-up-the-client-project)
