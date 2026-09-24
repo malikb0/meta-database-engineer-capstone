@@ -1,6 +1,6 @@
 USE LittleLemonDB;
 
-/* Task 1 AddBooking Procedure  */
+/* Add a new booking  */
 
 DELIMITER //
 CREATE PROCEDURE AddBooking(
@@ -34,7 +34,7 @@ DELIMITER ;
 call AddBooking(9,3,4,"2022-12-30");
 
 
-/* Task 2 UpdateBooking Procedure  */
+/* Update an existing booking's date  */
 
 DELIMITER //
 CREATE PROCEDURE UpdateBooking(IN bk_id INT, IN bk_date DATE)
@@ -63,7 +63,7 @@ call UpdateBooking(9,"2022-12-17");
 
 
 
-/* Task 2 CancelBooking Procedure  */
+/* Cancel (delete) a booking  */
 
 DELIMITER //
 CREATE PROCEDURE CancelBooking(IN bk_id INT)

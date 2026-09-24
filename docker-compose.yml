@@ -1,0 +1,30 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: littlelemon-db
+    restart: unless-stopped
+    command:
+      - --default-authentication-plugin=mysql_native_password
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-change_me_root}
+      MYSQL_DATABASE: ${DB_NAME:-LittleLemonDB}
+      MYSQL_USER: ${DB_USER:-admindjango}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-change_me}
+    ports:
+      - "${DB_PORT:-3306}:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      # Loaded in filename order on first start only.
+      - ./LittleLemon-Database-Setup/LittleLemonDB-Schema-Script.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+      - ./Database-Queries-Procedures-Statements/littlelemon_dummy_data.sql:/docker-entrypoint-initdb.d/02-data.sql:ro
+      - ./LittleLemon-Database-Setup/LittleLemonDB-Programmability.sql:/docker-entrypoint-initdb.d/03-programmability.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-p${MYSQL_ROOT_PASSWORD:-change_me_root}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  mysql-data:
