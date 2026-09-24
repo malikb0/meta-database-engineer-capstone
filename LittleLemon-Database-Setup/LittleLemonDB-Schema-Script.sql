@@ -125,7 +125,7 @@ DROP TABLE IF EXISTS `LittleLemonDB`.`orders` ;
 CREATE TABLE IF NOT EXISTS `LittleLemonDB`.`orders` (
   `order_id` INT NOT NULL AUTO_INCREMENT,
   `order_date` DATE NOT NULL,
-  `quantity` VARCHAR(45) NOT NULL,
+  `quantity` INT NOT NULL,
   `total_cost` DECIMAL(8,2) NOT NULL,
   `customer_id` INT NULL,
   `delivery_status_id` INT NULL,

@@ -1,6 +1,6 @@
 USE LittleLemonDB;
 
-/*   Task 1 Create Virtual Table  */
+/*   Summary view: orders with quantity greater than 2   */
 create view Virtual_OrdersView as
 select order_id as OrderID, quantity as Quantity, total_cost as Cost 
 from orders
@@ -8,7 +8,7 @@ where quantity > 2;
 
 select * from Virtual_OrdersView;
 
-/*   Task 2 Joins  */
+/*   Join across customers, orders, menu and menu_item   */
 select 
 	cst.customer_id as CustomerID, 
     full_name as FullName, 
@@ -22,7 +22,7 @@ left join menu as mn on odr.menu_id = mn.menu_id
 left join menu_item as mnit on mn.menu_item_id = mnit.menu_item_id
 where total_cost > 150;
 
-/*   Task 3 SubQuery  */
+/*   Subquery: menu items ordered more than twice   */
 
 select menu_name from menu 
 where menu_id = any (
