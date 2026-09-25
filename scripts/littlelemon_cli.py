@@ -28,7 +28,7 @@ try:
     from mysql.connector import Error
     from mysql.connector.pooling import MySQLConnectionPool
 except ImportError:  # pragma: no cover
-    sys.exit("mysql-connector-python is required: pipenv install")
+    sys.exit("mysql-connector-python is required: pip install -r requirements.txt")
 
 
 def load_env() -> None:

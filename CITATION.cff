@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Little Lemon Database — Meta Database Engineer Capstone"
+version: 1.0.0
+date-released: "2026-09-25"
+license: MIT
+repository-code: "https://github.com/malikb0/meta-database-engineer-capstone"
+authors:
+  - family-names: "Malik"
+    given-names: "Awais"
+abstract: >-
+  An end-to-end relational database project for a restaurant ("Little Lemon"):
+  a normalised MySQL 8 schema modelled in MySQL Workbench, analytical SQL with
+  views, joins, subqueries, stored procedures and transactions, an interactive
+  Tableau dashboard, and a Python client using mysql-connector-python.
+keywords:
+  - MySQL
+  - SQL
+  - database design
+  - Tableau
+  - Python
+references:
+  - type: software
+    title: "Meta Database Engineer Professional Certificate"
+    publisher:
+      name: "Coursera / Meta Platforms, Inc."
+    url: "https://www.coursera.org/professional-certificates/meta-database-engineer"
+    notes: >-
+      The course that inspired this independent implementation. No course
+      material is included in this repository.

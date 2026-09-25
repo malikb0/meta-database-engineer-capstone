@@ -17,9 +17,9 @@ services:
     volumes:
       - mysql-data:/var/lib/mysql
       # Loaded in filename order on first start only.
-      - ./LittleLemon-Database-Setup/LittleLemonDB-Schema-Script.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
-      - ./Database-Queries-Procedures-Statements/littlelemon_dummy_data.sql:/docker-entrypoint-initdb.d/02-data.sql:ro
-      - ./LittleLemon-Database-Setup/LittleLemonDB-Programmability.sql:/docker-entrypoint-initdb.d/03-programmability.sql:ro
+      - ./db/schema/LittleLemonDB-Schema-Script.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+      - ./db/seed/littlelemon_dummy_data.sql:/docker-entrypoint-initdb.d/02-data.sql:ro
+      - ./db/programmability/LittleLemonDB-Programmability.sql:/docker-entrypoint-initdb.d/03-programmability.sql:ro
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-p${MYSQL_ROOT_PASSWORD:-change_me_root}"]
       interval: 10s
