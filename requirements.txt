@@ -1,0 +1,8 @@
+# Runtime dependencies for the Little Lemon database project.
+# Install with:  pip install -r requirements.txt
+# See docs/setup.md for the full setup flow.
+
+mysql-connector-python==26.7.0
+python-dotenv==1.2.3
+jupyter==1.1.1
+pytest==9.1.1

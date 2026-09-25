@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "little-lemon-db"
+version = "1.0.0"
+description = "Little Lemon restaurant database: a normalised MySQL schema, analytical SQL, a Tableau dashboard and a Python client."
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [{ name = "Malik Awais" }]
+keywords = ["mysql", "sql", "database", "tableau", "portfolio", "capstone"]
+classifiers = [
+    "Database :: Database Engines/Servers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: SQL",
+]
+
+[project.urls]
+Repository = "https://github.com/malikb0/meta-database-engineer-capstone"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

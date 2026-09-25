@@ -6,7 +6,7 @@
 --
 -- Note: the GetOrderDetail PREPARE statement is session-scoped in MySQL, so it
 -- cannot live in a schema bootstrap script. It is kept in
--- `Database-Queries-Procedures-Statements/02-stored-procedures.sql` instead.
+-- `queries/02-stored-procedures.sql` instead.
 -- ---------------------------------------------------------------------------
 
 USE LittleLemonDB;

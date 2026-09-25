@@ -9,6 +9,10 @@ __pycache__/
 *.py[cod]
 .ipynb_checkpoints/
 *.egg-info/
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
 
 # ----- Jupyter -----
 .jupyter/
@@ -32,3 +36,6 @@ docker/mysql-data/
 
 # CLI output
 exports/
+
+# Orchestrator/agent-private working files (never published)
+.orchestrator/
